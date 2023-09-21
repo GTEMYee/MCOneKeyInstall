@@ -14,7 +14,7 @@ echo 将开始进行下载
 echo 如果弹出"Windows 安全警报"窗口请勾选"公用网络"和"专用网络"
 echo 保证正常下载
 echo.
-echo 如果Hello! Minecraft Launcher、Plain Craft Launcher 2不能下载,请使用steam++进行GitHub加速
+echo 如果 Hello! Minecraft Launcher、Plain Craft Launcher 2 不能下载,请使用 Steam++ 进行 GitHub 加速
 echo.
 echo 若出现 Redirecting to 消息是正常现象,继续等候下载
 echo 每一段时间出现 Download Progress Summary 时是下载状态报告
@@ -33,8 +33,8 @@ title Minecraft 一键安装 当前进行内容:解压缩 运行路径:%cd%
 echo ==================
 echo.
 timeout /t 2 /nobreak >nul
-7za.exe x .\Azul-JDKFX8.0.382_X64-Win.zip
-7za.exe x .\Azul-JDK17.0.8.1_X64-Win.zip
+7za.exe x .\Azul-JDKFX8_X64-Win.zip
+7za.exe x .\Azul-JDK17_X64-Win.zip
 7za.exe x .\PCLRealase.zip
 timeout /t 2 /nobreak >nul
 title Minecraft 一键安装 当前进行内容:更正名称 运行路径:%cd%
@@ -44,8 +44,8 @@ rename .\zulu17.44.53-ca-jdk17.0.8.1-win_x64 JDK17
 rename ".\Plain Craft Launcher 2.exe" PlainCraftLauncher2.exe
 timeout /t 2 /nobreak >nul
 title Minecraft 一键安装 当前进行内容:清理 运行路径:%cd%
-del /f /s /q .\Azul-JDKFX8.0.382_X64-Win.zip
-del /f /s /q .\Azul-JDK17.0.8.1_X64-Win.zip
+del /f /s /q .\Azul-JDKFX8_X64-Win.zip
+del /f /s /q .\Azul-JDK17_X64-Win.zip
 del /f /s /q .\PCLRealase.zip
 timeout /t 2 /nobreak >nul
 reg add "HKEY_CURRENT_USER\Environment" /v "MCOneKeyInst" /t REG_EXPAND_SZ /d %cd% >nul
