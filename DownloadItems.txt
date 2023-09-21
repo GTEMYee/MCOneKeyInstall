@@ -1,8 +1,8 @@
 https://cdn.azul.com/zulu/bin/zulu8.72.0.17-ca-fx-jdk8.0.382-win_x64.zip
-  out=Azul-JDKFX8.0.382_X64-Win.zip
+  out=Azul-JDKFX8_X64-Win.zip
   checksum=sha-256=09bec3ef4eef77028086e3be1216c3305787c79f97ded516d204eac85548eaf3
 https://cdn.azul.com/zulu/bin/zulu17.44.53-ca-jdk17.0.8.1-win_x64.zip
-  out=Azul-JDK17.0.8.1_X64-Win.zip
+  out=Azul-JDK17_X64-Win.zip
   checksum=sha-256=192f2afca57701de6ec496234f7e45d971bf623ff66b8ee4a5c81582054e5637
 https://github.com/huanghongxun/HMCL/releases/download/release-3.5.5/HMCL-3.5.5.exe
   out=HMCL-3.5.5.exe
