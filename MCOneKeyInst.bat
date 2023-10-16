@@ -33,9 +33,9 @@ title Minecraft 一键安装 当前进行内容:解压缩 运行路径:%cd%
 echo ==================
 echo.
 timeout /t 2 /nobreak >nul
-7za.exe x .\Azul-JDKFX8_X64-Win.zip
-7za.exe x .\Azul-JDK17_X64-Win.zip
-7za.exe x .\PCLRealase.zip
+7z.exe x .\Azul-JDKFX8_X64-Win.zip
+7z.exe x .\Azul-JDK17_X64-Win.zip
+7z.exe x .\PCLRealase.zip
 timeout /t 2 /nobreak >nul
 title Minecraft 一键安装 当前进行内容:更正名称 运行路径:%cd%
 echo ==================
@@ -50,6 +50,8 @@ del /f /s /q .\PCLRealase.zip
 timeout /t 2 /nobreak >nul
 reg add "HKEY_CURRENT_USER\Environment" /v "MCOneKeyInst" /t REG_EXPAND_SZ /d %cd% >nul
 echo.
+title Minecraft 一键安装 当前进行内容:创建快捷方式 运行路径:%cd%
+timeout /t 2 /nobreak >nul
 mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\HMCL-3.5.5.lnk""):b.TargetPath=""%~dp0HMCL-3.5.5.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
 mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\Plain Craft Launcher 2.lnk""):b.TargetPath=""%~dp0PlainCraftLauncher2.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
 goto Success
@@ -78,12 +80,16 @@ exit
 :Success
 mkdir .minecraft;PCL
 echo 安装完成,按任意键退出
+echo 如果在 对局域网开放 和 多人游戏 时弹出 Windows安全警报 窗口
+echo 请勾选 专用网络 和 公用网络,然后 允许访问
 pause >nul
 exit
 
 :exist
 echo 你已经拥有了 Minecraft 一键安装
 echo 按任意键查看该文件夹并退出批处理
+echo 如果在 对局域网开放 和 多人游戏 时弹出 Windows安全警报 窗口
+echo 请勾选 专用网络 和 公用网络,然后 允许访问
 pause >nul
 start %MCOneKeyInst%
 exit
