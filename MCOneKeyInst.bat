@@ -1,5 +1,5 @@
 @echo off
-title Minecraft Ò»¼ü°²×° µ±Ç°Â·¾¶:%cd%
+title Minecraft ä¸€é”®å®‰è£… å½“å‰è·¯å¾„:%cd%
 cd /d %~dp0
 
 :Check
@@ -10,26 +10,26 @@ echo %cd%|findstr "%systemdrive%" >nul&&(goto DontInstSystemDrive)
 reg query "HKEY_CURRENT_USER\Environment" /v "MCOneKeyInst" >nul 2>nul&&goto exist||goto StartInst
 
 :StartInst
-echo ½«¿ªÊ¼½øÐÐÏÂÔØ
-echo Èç¹ûµ¯³ö"Windows °²È«¾¯±¨"´°¿ÚÇë¹´Ñ¡"¹«ÓÃÍøÂç"ºÍ"×¨ÓÃÍøÂç"
-echo ±£Ö¤Õý³£ÏÂÔØ
+echo å°†å¼€å§‹è¿›è¡Œä¸‹è½½
+echo å¦‚æžœå¼¹å‡º"Windows å®‰å…¨è­¦æŠ¥"çª—å£è¯·å‹¾é€‰"å…¬ç”¨ç½‘ç»œ"å’Œ"ä¸“ç”¨ç½‘ç»œ"
+echo ä¿è¯æ­£å¸¸ä¸‹è½½
 echo.
-echo Èç¹û Hello! Minecraft Launcher¡¢Plain Craft Launcher 2 ²»ÄÜÏÂÔØ,ÇëÊ¹ÓÃ Steam++ ½øÐÐ GitHub ¼ÓËÙ
+echo å¦‚æžœ Hello! Minecraft Launcherã€Plain Craft Launcher 2 ä¸èƒ½ä¸‹è½½,è¯·ä½¿ç”¨ Watt Toolkit è¿›è¡Œ GitHub åŠ é€Ÿ
 echo.
-echo Èô³öÏÖ Redirecting to ÏûÏ¢ÊÇÕý³£ÏÖÏó,¼ÌÐøµÈºòÏÂÔØ
-echo Ã¿Ò»¶ÎÊ±¼ä³öÏÖ Download Progress Summary Ê±ÊÇÏÂÔØ×´Ì¬±¨¸æ
-echo ÇëÎðÍË³ö´°¿Ú
+echo è‹¥å‡ºçŽ° Redirecting to æ¶ˆæ¯æ˜¯æ­£å¸¸çŽ°è±¡,ç»§ç»­ç­‰å€™ä¸‹è½½
+echo æ¯ä¸€æ®µæ—¶é—´å‡ºçŽ° Download Progress Summary æ—¶æ˜¯ä¸‹è½½çŠ¶æ€æŠ¥å‘Š
+echo è¯·å‹¿é€€å‡ºçª—å£
 echo.
-echo 5Ãëºó¼ÌÐø
+echo 5ç§’åŽç»§ç»­
 echo.
 timeout /t 5 /nobreak >nul
-title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ:ÏÂÔØ ÔËÐÐÂ·¾¶:%cd%
-echo µ±Ç°½øÐÐÄÚÈÝ:
-echo ÏÂÔØ Azul JDKFX 8¡¢Azul JDK 17¡¢Hello! Minecraft Launcher¡¢Plain Craft Launcher 2
+title Minecraft ä¸€é”®å®‰è£… å½“å‰è¿›è¡Œå†…å®¹:ä¸‹è½½ è¿è¡Œè·¯å¾„:%cd%
+echo å½“å‰è¿›è¡Œå†…å®¹:
+echo ä¸‹è½½ Azul JDKFX 8ã€Azul JDK 17ã€Hello! Minecraft Launcherã€Plain Craft Launcher 2
 echo.
 aria2c.exe --no-conf --log-level=info -x4 -s5 -j5 -c -R -d"%cd%" -i".\DownloadItems.txt"
 timeout /t 2 /nobreak >nul
-title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ:½âÑ¹Ëõ ÔËÐÐÂ·¾¶:%cd%
+title Minecraft ä¸€é”®å®‰è£… å½“å‰è¿›è¡Œå†…å®¹:è§£åŽ‹ç¼© è¿è¡Œè·¯å¾„:%cd%
 echo ==================
 echo.
 timeout /t 2 /nobreak >nul
@@ -37,20 +37,20 @@ timeout /t 2 /nobreak >nul
 7z.exe x .\Azul-JDK17_X64-Win.zip
 7z.exe x .\PCLRealase.zip
 timeout /t 2 /nobreak >nul
-title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ:¸üÕýÃû³Æ ÔËÐÐÂ·¾¶:%cd%
+title Minecraft ä¸€é”®å®‰è£… å½“å‰è¿›è¡Œå†…å®¹:æ›´æ­£åç§° è¿è¡Œè·¯å¾„:%cd%
 echo ==================
 rename .\zulu8.72.0.17-ca-fx-jdk8.0.382-win_x64 jre-x64
 rename .\zulu17.44.53-ca-jdk17.0.8.1-win_x64 JDK17
 rename ".\Plain Craft Launcher 2.exe" PlainCraftLauncher2.exe
 timeout /t 2 /nobreak >nul
-title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ:ÇåÀí ÔËÐÐÂ·¾¶:%cd%
+title Minecraft ä¸€é”®å®‰è£… å½“å‰è¿›è¡Œå†…å®¹:æ¸…ç† è¿è¡Œè·¯å¾„:%cd%
 del /f /s /q .\Azul-JDKFX8_X64-Win.zip
 del /f /s /q .\Azul-JDK17_X64-Win.zip
 del /f /s /q .\PCLRealase.zip
 timeout /t 2 /nobreak >nul
 reg add "HKEY_CURRENT_USER\Environment" /v "MCOneKeyInst" /t REG_EXPAND_SZ /d %cd% >nul
 echo.
-title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ:´´½¨¿ì½Ý·½Ê½ ÔËÐÐÂ·¾¶:%cd%
+title Minecraft ä¸€é”®å®‰è£… å½“å‰è¿›è¡Œå†…å®¹:åˆ›å»ºå¿«æ·æ–¹å¼ è¿è¡Œè·¯å¾„:%cd%
 timeout /t 2 /nobreak >nul
 mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\HMCL-3.5.5.lnk""):b.TargetPath=""%~dp0HMCL-3.5.5.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
 mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\Plain Craft Launcher 2.lnk""):b.TargetPath=""%~dp0PlainCraftLauncher2.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
@@ -58,38 +58,38 @@ goto Success
 
 :InvalidArchitecture
 cls
-echo ²»Ö§³ÖµÄ¼Ü¹¹,°´ÈÎÒâ¼üÍË³ö
+echo ä¸æ”¯æŒçš„æž¶æž„,æŒ‰ä»»æ„é”®é€€å‡º
 pause >nul
 exit
 
 :No32Systems
 cls
-echo ÒªÇó64Î»²Ù×÷ÏµÍ³!
-echo °´ÈÎÒâ¼üÍË³ö
+echo è¦æ±‚64ä½æ“ä½œç³»ç»Ÿ!
+echo æŒ‰ä»»æ„é”®é€€å‡º
 pause >nul
 exit
 
 :DontInstSystemDrive
 cls
-echo ½ûÖ¹ÔÚÏµÍ³·ÖÇøÔËÐÐ°²×°!
-echo ·ÀÖ¹²»¿É¿ØµÄÓ²ÅÌ¿Õ¼äÕ¼ÓÃ!
-echo °´ÈÎÒâ¼üÍË³ö
+echo ç¦æ­¢åœ¨ç³»ç»Ÿåˆ†åŒºè¿è¡Œå®‰è£…!
+echo é˜²æ­¢ä¸å¯æŽ§çš„ç¡¬ç›˜ç©ºé—´å ç”¨!
+echo æŒ‰ä»»æ„é”®é€€å‡º
 pause >nul
 exit
 
 :Success
 mkdir .minecraft;PCL
-echo °²×°Íê³É,°´ÈÎÒâ¼üÍË³ö
-echo Èç¹ûÔÚ ¶Ô¾ÖÓòÍø¿ª·Å ºÍ ¶àÈËÓÎÏ· Ê±µ¯³ö Windows°²È«¾¯±¨ ´°¿Ú
-echo Çë¹´Ñ¡ ×¨ÓÃÍøÂç ºÍ ¹«ÓÃÍøÂç,È»ºó ÔÊÐí·ÃÎÊ
+echo å®‰è£…å®Œæˆ,æŒ‰ä»»æ„é”®é€€å‡º
+echo å¦‚æžœåœ¨ å¯¹å±€åŸŸç½‘å¼€æ”¾ å’Œ å¤šäººæ¸¸æˆ æ—¶å¼¹å‡º Windowså®‰å…¨è­¦æŠ¥ çª—å£
+echo è¯·å‹¾é€‰ ä¸“ç”¨ç½‘ç»œ å’Œ å…¬ç”¨ç½‘ç»œ,ç„¶åŽ å…è®¸è®¿é—®
 pause >nul
 exit
 
 :exist
-echo ÄãÒÑ¾­ÓµÓÐÁË Minecraft Ò»¼ü°²×°
-echo °´ÈÎÒâ¼ü²é¿´¸ÃÎÄ¼þ¼Ð²¢ÍË³öÅú´¦Àí
-echo Èç¹ûÔÚ ¶Ô¾ÖÓòÍø¿ª·Å ºÍ ¶àÈËÓÎÏ· Ê±µ¯³ö Windows°²È«¾¯±¨ ´°¿Ú
-echo Çë¹´Ñ¡ ×¨ÓÃÍøÂç ºÍ ¹«ÓÃÍøÂç,È»ºó ÔÊÐí·ÃÎÊ
+echo ä½ å·²ç»æ‹¥æœ‰äº† Minecraft ä¸€é”®å®‰è£…
+echo æŒ‰ä»»æ„é”®æŸ¥çœ‹è¯¥æ–‡ä»¶å¤¹å¹¶é€€å‡ºæ‰¹å¤„ç†
+echo å¦‚æžœåœ¨ å¯¹å±€åŸŸç½‘å¼€æ”¾ å’Œ å¤šäººæ¸¸æˆ æ—¶å¼¹å‡º Windowså®‰å…¨è­¦æŠ¥ çª—å£
+echo è¯·å‹¾é€‰ ä¸“ç”¨ç½‘ç»œ å’Œ å…¬ç”¨ç½‘ç»œ,ç„¶åŽ å…è®¸è®¿é—®
 pause >nul
 start %MCOneKeyInst%
 exit
