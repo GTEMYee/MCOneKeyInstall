@@ -3,6 +3,19 @@ setlocal enabledelayedexpansion
 title Minecraft Ò»¼ü°²×° µ±Ç°Â·¾¶:%cd%
 cd /d %~dp0
 
+:ProgramFileSet
+set ariac=%cd%\aria2c.exe
+set zipa=%cd%\7za.exe
+set FolderKwordRen=%cd%\FolderKeywordRename.exe
+set downloaditems=%cd%\downloaditems.txt
+
+:Check
+echo %PROCESSOR_ARCHITECTURE%|findstr "arm" >nul&&(goto InvalidArchitecture)
+echo %PROCESSOR_ARCHITECTURE%|findstr "32" >nul&&(goto No32Systems)
+echo %PROCESSOR_ARCHITECTURE%|findstr "86" >nul&&(goto No32Systems)
+echo %cd%|findstr "%systemdrive%" >nul&&(goto DontInstSystemDrive)
+reg query "HKEY_CURRENT_USER\Environment" /v "MCOneKeyInst" >nul 2>nul&&goto exist||goto Disclaimer
+
 :Disclaimer
 title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ: ÃâÔðÉùÃ÷ ÔËÐÐÂ·¾¶: %cd%
 echo ÄúÐèÒª±£Ö¤Ò»ÅÌÖÁÉÙÁ½Çø (Ö»Ëã·ÖÅäÇý¶¯Æ÷ºÅ)
@@ -10,34 +23,21 @@ echo ÈôÖ»ÓÐÒ»ÅÌÒ»Çø,ÄúÌá½»ÁË issue,ÎÒÃÇ²»»áÊÜÀí,µ«»áÒýµ¼ÄúÈçºÎÒ»ÅÌÁ½Çø
 echo ÈôÓÐ¶àÅÌ,¸÷ÅÌ¸÷·ÖÒ»Çø,Ôò²»»áÉæ¼°¸ÃÎÊÌâ
 pause & cls
 
-:Check
-echo %PROCESSOR_ARCHITECTURE%|findstr "arm" >nul&&(goto InvalidArchitecture)
-echo %PROCESSOR_ARCHITECTURE%|findstr "32" >nul&&(goto No32Systems)
-echo %PROCESSOR_ARCHITECTURE%|findstr "86" >nul&&(goto No32Systems)
-echo %cd%|findstr "%systemdrive%" >nul&&(goto DontInstSystemDrive)
-reg query "HKEY_CURRENT_USER\Environment" /v "MCOneKeyInst" >nul 2>nul&&goto exist||goto ProgramFileSet
-
-:ProgramFileSet
-set ariac=%cd%\aria2c.exe
-set zipa=%cd%\7za.exe
-set FolderKwordRen=%cd%\FolderKeywordRename.exe
-set downloaditems=%cd%\downloaditems.txt
-
 :tips
 title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ: ÌáÊ¾ ÔËÐÐÂ·¾¶: %cd%
 echo Èç¹û Hello! Minecraft Launcher¡¢Plain Craft Launcher 2 ²»ÄÜÏÂÔØ,ÇëÔÚÖ®ºóÌîÐ´´úÀí
-echo ÈôÃ»ÓÐ´úÀí,ÔòÊ¹ÓÃ Steam++ ½øÐÐ GitHub ¼ÓËÙ,µ«²»ÄÜÓë´úÀíµÄËÙ¶ÈÏà±È
+echo ÈôÃ»ÓÐ´úÀí,ÔòÊ¹ÓÃ Steam++ ½øÐÐ GitHub ¼ÓËÙ,µ«ËÙ¶È²»ÄÜÓë´úÀíÏà±È
 pause >nul & pause & echo. & echo.
 
 :choosedir
-title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ: ÏÂÔØ ÔËÐÐÂ·¾¶: %cd%
+title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ: ÇÐ»»ÏÂÔØÎÄ¼þ¼Ð ÏÂÔØÂ·¾¶: %cd%
 echo ÔÚ´ËÊäÈëÒªÇÐ»»µÄÄ¿Â¼,Èô²»ÊäÈëÖ±½Ó»Ø³µÔò»á±£³Öµ±Ç°Ä¿Â¼ & echo ¿ìËÙÊäÈë? ÔÚ×ÊÔ´¹ÜÀíÆ÷ÖÐ½«ÎÄ¼þ¼ÐÍÏÈë±¾´°¿Ú¼´¿É
 set /p "target=ÉèÖÃÂ·¾¶: "
 if "%target%"=="" (echo ±£³Öµ±Ç°Ä¿Â¼£º%cd%) else (if exist "%target%\" (pushd "%target%" 2>nul & if errorlevel 1 (echo ´íÎó£ºÎÞ·¨·ÃÎÊÄ¿Â¼ "%target%" & goto choosedir ) & echo ÒÑÇÐ»»µ½£º%cd% ) else (echo ´íÎó£ºÄ¿Â¼ "%target%" ²»´æÔÚ & goto choosedir ))
-title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ: ÏÂÔØ ÔËÐÐÂ·¾¶: %cd%
+title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ: ´úÀíÉèÖÃ ÏÂÔØÂ·¾¶: %cd%
 
 :Setproxy
-echo. & echo Èç¹ûÄãÓµÓÐ´úÀí,ÔÚÏÂ·½Ð´ÏÂ´úÀí·þÎñÆ÷µÄµØÖ·,ÓÃÓÚÎª GitHub ÏÂÔØÔöËÙ & echo ÓÉÓÚÎ´²âÊÔ¹ýsocks´úÀíÐ­Òé,µ±Ç°°æ±¾ÔÝÊ±Ö»ÄÜÌîÈë http ´úÀí & echo ×¢Òâ´ø²»´øÐ­Òé¾ù¿É,ÀýÈç 10.15.1.12:7890 & echo ÈôÃ»ÓÐÔò»Ø³µ¼üÌø¹ý,²»Ó°ÏìÏÂÔØ
+echo. & echo Èç¹ûÄãÓµÓÐ´úÀí,ÔÚÏÂ·½Ð´ÏÂ´úÀí·þÎñÆ÷µÄµØÖ·,ÓÃÓÚÎª GitHub ÏÂÔØÔöËÙ & echo ÓÉÓÚÎ´²âÊÔ¹ýsocks´úÀíÐ­Òé,µ±Ç°°æ±¾ÔÝÊ±Ö»ÄÜÌîÈë http ´úÀí & echo ´ø²»´øÐ­Òé¾ù¿É,ÀýÈç 10.15.1.12:7890,IPµØÖ·ÒªºÍ¶Ë¿ÚÒ»ÆðÐ´ & echo ÈôÃ»ÓÐÔò»Ø³µ¼üÌø¹ý,²»Ó°ÏìÏÂÔØ
 set /p "proxy=ÔÚ´ËÊäÈë´úÀíµØÖ·: "
 
 :ProxyUsrPasswd
@@ -45,14 +45,14 @@ echo. & echo Èç¹û¸Ã´úÀíÒªÇóÓÃ»§ÃûºÍÃÜÂë,ÔÚ´ËÊäÈë & echo Í¨³£Çé¿öÏÂ,´úÀí¹¤¾ß²»¾ß±
 set /p "proxyusr=ÔÚ´ËÊäÈë´úÀíÓÃ»§Ãû: " & set /p "proxypasswd=ÔÚ´ËÊäÈë´úÀí¶ÔÓ¦ÓÃ»§ÃûµÄÃÜÂë: "
 
 :StartInst
-echo.
+title Minecraft Ò»¼ü°²×° µ±Ç°½øÐÐÄÚÈÝ: ÏÂÔØ ÏÂÔØÂ·¾¶: %cd% & echo.
 echo ÏÂÔØÕýÔÚ×¼±¸µ±ÖÐ
 echo Èç¹ûµ¯³ö"Windows °²È«¾¯±¨"´°¿ÚÇë¹´Ñ¡"¹«ÓÃÍøÂç"ºÍ"×¨ÓÃÍøÂç"
 echo ±£Ö¤Õý³£ÏÂÔØ
 echo.
 echo Èô³öÏÖ Redirecting to ÏûÏ¢ÊÇÕý³£ÏÖÏó,¼ÌÐøµÈºòÏÂÔØ
 echo Ã¿Ò»¶ÎÊ±¼ä³öÏÖ Download Progress Summary Ê±ÊÇÏÂÔØ×´Ì¬±¨¸æ
-echo ÇëÎðÍË³ö´°¿Ú
+echo ÇëÎðÍË³ö´°¿Ú,·ñÔò»áÖÕÖ¹
 echo.
 echo 5Ãëºó¼ÌÐø
 timeout /t 5 /nobreak >nul
@@ -86,13 +86,13 @@ rename "Plain Craft Launcher 2.exe" PlainCraftLauncher2.exe
 timeout /t 2 /nobreak >nul & echo ¼ÓÈë×¢²á±íÏîÄ¿...
 reg add "HKEY_CURRENT_USER\Environment" /v "MCOneKeyInst" /t REG_EXPAND_SZ /d %cd% >nul
 echo.
-mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\HMCL-3.5.5.lnk""):b.TargetPath=""%~dp0HMCL-3.5.5.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
-mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\Plain Craft Launcher 2.lnk""):b.TargetPath=""%~dp0PlainCraftLauncher2.exe"":b.WorkingDirectory=""%~dp0"":b.Save:close")
+mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\Hello Minecraft Launcher.lnk""):b.TargetPath=""%cd%\HMCL-3.8.2.exe"":b.WorkingDirectory=""%cd%"":b.Save:close")
+mshta VBScript:Execute("Set a=CreateObject(""WScript.Shell""):Set b=a.CreateShortcut(a.SpecialFolders(""Desktop"") & ""\Plain Craft Launcher 2.lnk""):b.TargetPath=""%cd%\PlainCraftLauncher2.exe"":b.WorkingDirectory=""%cd%"":b.Save:close")
 goto Success
 
 :InvalidArchitecture
 cls
-echo ÉÐ²»Ö§³ÖµÄ´¦ÀíÆ÷ÀàÐÍ,°´ÈÎÒâ¼üÍË³ö
+echo ´¦ÀíÆ÷ÀàÐÍ %PROCESSOR_ARCHITECTURE% ÉÐ²»Ö§³Ö,°´ÈÎÒâ¼üÍË³ö
 pause >nul & pause >nul
 exit
 
